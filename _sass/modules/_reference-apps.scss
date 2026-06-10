@@ -2,6 +2,11 @@
 // The default docs cards are fixed-height, centered, and absolutely
 // positioned; these cards lead with a screenshot and size to their content.
 .reference-apps {
+  // Breathing room between the heading/subtitle and the grid.
+  .cards__container {
+    margin-top: 50px;
+  }
+
   .card {
     height: auto !important;
     max-height: none !important;
@@ -10,6 +15,12 @@
     .card__body {
       position: static;
       height: 100%;
+    }
+
+    // Keep the author eyebrow legible on hover (the base card turns
+    // .card__label h6 red, which would hide our red-on-transparent text).
+    a:hover .card__label h6 {
+      background: transparent;
     }
   }
 
@@ -57,14 +68,32 @@
     }
   }
 
+  // Neutralize the base card's 30px side margins and vertical padding so
+  // the headline and blurb align flush with the eyebrow and the wrapper's
+  // own 25px padding.
+  .card__headline,
+  .card__content {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
   .card__headline {
+    padding-top: 0;
+
     h3 {
+      margin-left: 0;
+      margin-right: 0;
       text-align: left;
     }
   }
 
   .card__content {
+    padding-bottom: 0;
+
     p {
+      margin-left: 0;
+      margin-right: 0;
       text-align: left;
     }
   }
