@@ -3,7 +3,11 @@
 // positioned; these cards lead with a screenshot and size to their content.
 .reference-apps {
   // Breathing room between the heading/subtitle and the grid.
+  // align-items:start lets each card size to its own content so the
+  // content area keeps the same 25px padding on every side, instead of
+  // stretching shorter cards to match the tallest in the row.
   .cards__container {
+    align-items: start;
     margin-top: 50px;
   }
 
