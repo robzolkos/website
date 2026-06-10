@@ -48,6 +48,7 @@
   }
 
   &__text {
+    box-sizing: border-box;
     padding: 25px;
     text-align: left;
     width: 100%;
