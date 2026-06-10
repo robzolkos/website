@@ -1,0 +1,22 @@
+# Pull quotes featured above the Reference Apps grid — prominent voices on why
+# Rails is a strong fit for AI/agent-assisted development. Each quote links to
+# its source tweet. Keep these short and punchy; trim with an ellipsis where
+# needed (the link goes to the full context).
+quotes:
+  - text: "Convention over configuration set the path for 20+ years of great training data for AI to use today. Not only does this mean agents do great with Rails, but also that squishy humans can quickly and confidently review the output without a jungle of distracting boilerplate."
+    name: David Heinemeier Hansson
+    handle: "@dhh"
+    title: Creator of Ruby on Rails
+    url: https://x.com/dhh/status/2018574874675929544
+
+  - text: "I'm at 90x productivity and speeding up Rails…"
+    name: Garry Tan
+    handle: "@garrytan"
+    title: President & CEO, Y Combinator
+    url: https://x.com/garrytan/status/2038615273415332261
+
+  - text: "Rails' convention over configuration explains why I got very good LLM output quality in the early days of LLM-assisted coding while many developers still thought it was unusable. Most Rails codebases look the same and on average is high quality."
+    name: Marc Köhlbrugge
+    handle: "@marckohlbrugge"
+    title: Founder, WIP & BetaList
+    url: https://x.com/marckohlbrugge/status/2018584856687501728

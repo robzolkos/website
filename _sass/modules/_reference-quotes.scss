@@ -1,0 +1,97 @@
+// A distinct, tinted band of pull quotes from prominent voices on Rails + AI,
+// shown above the Reference Apps grid.
+.reference-quotes {
+  background: $color-grey-1;
+
+  &__heading {
+    color: $color-black;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 40px 30px;
+    list-style: none;
+    margin: 0 30px;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    // Grow the quote so attributions align along the bottom of the row.
+    blockquote {
+      border: none;
+      flex: 1 1 auto;
+      margin: 0 0 18px;
+      padding: 0;
+      position: relative;
+
+      // Red opening quotation mark as a subtle accent.
+      &:before {
+        color: $color-red;
+        content: "\201C";
+        font-size: 48px;
+        font-weight: 700;
+        left: -2px;
+        line-height: 1;
+        position: absolute;
+        top: -10px;
+      }
+
+      p {
+        color: $color-black;
+        font-size: 19px;
+        line-height: 1.45;
+        margin: 0;
+        padding-top: 26px;
+      }
+    }
+
+    cite {
+      font-style: normal;
+
+      a {
+        display: block;
+        text-decoration: none;
+
+        &:hover .reference-quotes__name {
+          color: $color-red;
+        }
+      }
+    }
+  }
+
+  &__name {
+    color: $color-black;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    transition: color $transition;
+  }
+
+  &__meta {
+    color: $color-grey-5;
+    display: block;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  @media (min-width: 768px) {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &__grid {
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+  }
+}

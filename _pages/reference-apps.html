@@ -24,6 +24,29 @@ redirect_from:
   </div>
 </div>
 
+<div class="reference-quotes common-padding--top-small common-padding--bottom-small">
+  <div class="container">
+    <h2 class="reference-quotes__heading">Built for the age of AI.</h2>
+    <ul class="reference-quotes__grid">
+      {% for quote in site.data.ai_quotes.quotes %}
+      <li class="reference-quotes__item">
+        <blockquote>
+          <p>{{ quote.text }}</p>
+        </blockquote>
+        <cite>
+          <a href="{{ quote.url }}">
+            <span class="reference-quotes__name">{{ quote.name }}</span>
+            <span class="reference-quotes__meta">
+              {{ quote.handle }}{% if quote.title %} · {{ quote.title }}{% endif %}
+            </span>
+          </a>
+        </cite>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
 <div class="docs cards reference-apps common-padding--bottom-small">
   <div class="container">
     <div class="cards__container">
