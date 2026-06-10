@@ -35,9 +35,19 @@ redirect_from:
         </blockquote>
         <cite>
           <a href="{{ quote.url }}">
-            <span class="reference-quotes__name">{{ quote.name }}</span>
-            <span class="reference-quotes__meta">
-              {{ quote.handle }}{% if quote.title %} · {{ quote.title }}{% endif %}
+            {% if quote.avatar %}
+            <img
+              class="reference-quotes__avatar"
+              src="{{ quote.avatar }}"
+              alt="{{ quote.name }}"
+              loading="lazy"
+            />
+            {% endif %}
+            <span class="reference-quotes__person">
+              <span class="reference-quotes__name">{{ quote.name }}</span>
+              <span class="reference-quotes__meta">
+                {{ quote.handle }}{% if quote.title %} · {{ quote.title }}{% endif %}
+              </span>
             </span>
           </a>
         </cite>
