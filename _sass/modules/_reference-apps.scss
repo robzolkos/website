@@ -1,0 +1,59 @@
+// Reference Apps library — a content-sized variant of the docs card grid.
+// The default docs cards are fixed-height and absolutely positioned; these
+// cards carry a blurb plus a row of tags, so they size to their content.
+.reference-apps {
+  .card {
+    height: auto !important;
+    max-height: none !important;
+
+    a,
+    .card__body {
+      position: static;
+      height: 100%;
+    }
+  }
+
+  .card__body {
+    align-items: flex-start;
+    height: 100%;
+    padding: 30px 25px 25px;
+    text-align: left;
+  }
+
+  .card__headline {
+    h3 {
+      text-align: left;
+    }
+  }
+
+  .card__content {
+    p {
+      text-align: left;
+    }
+  }
+
+  // Scoped under .card__content to override the default
+  // `.cards .card__content ul { list-style-type: disc }` rule.
+  .card__content ul.reference-apps__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 15px 0 0;
+    padding: 0;
+    text-align: left;
+
+    li {
+      background: rgba($color-black, 0.05);
+      border-radius: 3px;
+      color: $color-grey-5;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      list-style: none;
+      padding: 6px 10px;
+      text-transform: uppercase;
+    }
+  }
+}
