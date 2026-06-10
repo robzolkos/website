@@ -1,7 +1,11 @@
-// A distinct, tinted band of pull quotes from prominent voices on Rails + AI,
-// shown above the Reference Apps grid.
+// A distinct, tinted band of quote cards from voices on Rails + AI, shown
+// above the Reference Apps grid. The band is separated from the page intro
+// above it and presents each quote as its own white card.
 .reference-quotes {
   background: $color-grey-1;
+  margin-top: 40px;
+  padding-bottom: 60px;
+  padding-top: 60px;
 
   &__heading {
     color: $color-black;
@@ -14,21 +18,28 @@
 
   &__grid {
     display: grid;
-    gap: 40px 30px;
+    gap: 24px;
     list-style: none;
     margin: 0 30px;
     padding: 0;
   }
 
+  // Each quote is a white card.
   &__item {
+    background: $color-white;
+    border-radius: 12px;
+    box-shadow:
+      0 3px 15px 2px rgba($color-black, 0.04),
+      0 1px 1px rgba($color-black, 0.02),
+      0 0 0 1px rgba($color-black, 0.06);
     display: flex;
     flex-direction: column;
+    padding: 30px 28px;
 
-    // Grow the quote so attributions align along the bottom of the row.
     blockquote {
       border: none;
       flex: 1 1 auto;
-      margin: 0 0 18px;
+      margin: 0 0 20px;
       padding: 0;
       position: relative;
 
@@ -36,25 +47,28 @@
       &:before {
         color: $color-red;
         content: "\201C";
-        font-size: 48px;
+        font-size: 44px;
         font-weight: 700;
         left: -2px;
         line-height: 1;
         position: absolute;
-        top: -10px;
+        top: -6px;
       }
 
       p {
         color: $color-black;
-        font-size: 19px;
-        line-height: 1.45;
+        font-size: 18px;
+        line-height: 1.5;
         margin: 0;
-        padding-top: 26px;
+        padding-top: 30px;
       }
     }
 
     cite {
+      border-top: 1px solid rgba($color-black, 0.08);
+      display: block;
       font-style: normal;
+      padding-top: 18px;
 
       a {
         display: block;
@@ -84,12 +98,13 @@
 
   @media (min-width: 768px) {
     &__grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 1024px) {
     &__grid {
+      grid-template-columns: repeat(3, 1fr);
       margin-left: 60px;
       margin-right: 60px;
     }

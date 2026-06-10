@@ -1,7 +1,6 @@
-# Pull quotes featured above the Reference Apps grid — prominent voices on why
-# Rails is a strong fit for AI/agent-assisted development. Each quote links to
-# its source tweet. Keep these short and punchy; trim with an ellipsis where
-# needed (the link goes to the full context).
+# Pull quotes featured above the Reference Apps grid — voices on why Rails is a
+# strong fit for AI/agent-assisted development. Each links to its source tweet.
+# `title` is optional. Keep quotes punchy; mark any trim with an ellipsis (…).
 quotes:
   - text: "Convention over configuration set the path for 20+ years of great training data for AI to use today. Not only does this mean agents do great with Rails, but also that squishy humans can quickly and confidently review the output without a jungle of distracting boilerplate."
     name: David Heinemeier Hansson
@@ -9,14 +8,28 @@ quotes:
     title: Creator of Ruby on Rails
     url: https://x.com/dhh/status/2018574874675929544
 
-  - text: "I'm at 90x productivity and speeding up Rails…"
-    name: Garry Tan
-    handle: "@garrytan"
-    title: President & CEO, Y Combinator
-    url: https://x.com/garrytan/status/2038615273415332261
-
   - text: "Rails' convention over configuration explains why I got very good LLM output quality in the early days of LLM-assisted coding while many developers still thought it was unusable. Most Rails codebases look the same and on average is high quality."
     name: Marc Köhlbrugge
     handle: "@marckohlbrugge"
     title: Founder, WIP & BetaList
     url: https://x.com/marckohlbrugge/status/2018584856687501728
+
+  - text: "One of the killer features of using Rails in this AI era is \"Convention over configuration\". If you keep your project close to the Rails defaults, the AI knows so much already about your project… It makes things 100x faster."
+    name: Ivan Morgillo
+    handle: "@hamen"
+    url: https://x.com/hamen/status/1920481695196688433
+
+  - text: "Ruby is semantically dense (e.g. has_many :orders) expands into hundreds of lines of latent database logic… it sends a single high-value token to the prompt, and the framework handles the low-entropy boilerplate."
+    name: render
+    handle: "@infinterenders"
+    url: https://x.com/infinterenders/status/2058761400131125691
+
+  - text: "Rails + AI is a one-person framework to build anything. Convention over configuration meets infinite leverage. What took a team of 5 in 2015 takes one dev and a Claude tab in 2026."
+    name: alex shapalov
+    handle: "@alxshp"
+    url: https://x.com/alxshp/status/2051750363162959897
+
+  - text: "React + Ruby on Rails + SQLite is an insanely good stack for solo builders. Fast to ship. AI friendly. Low infrastructure overhead."
+    name: Dima Barabash
+    handle: "@dbarabashh"
+    url: https://x.com/dbarabashh/status/2053805841539633486
