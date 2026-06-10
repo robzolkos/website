@@ -1,0 +1,88 @@
+// Reference Apps — alternate (A/B) layout built on the editorial `features`
+// module: a left-hand subhead with the app blocks in a flat, borderless grid
+// rather than the shadowed card grid of the primary page.
+.reference-library {
+  .features__block {
+    // Reset the features module's tight negative margins; these blocks own
+    // their own rhythm (image, name, blurb, tags).
+    margin-bottom: 0;
+    margin-top: 0;
+
+    a {
+      color: $color-black;
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        .reference-library__shot {
+          box-shadow:
+            0 6px 20px rgba($color-black, 0.1),
+            0 0 0 1px rgba($color-black, 0.08);
+          transform: translateY(-3px);
+        }
+
+        h6 {
+          color: $color-red;
+        }
+      }
+    }
+
+    h6 {
+      color: $color-black;
+      transition: color $transition;
+    }
+
+    p {
+      color: $color-grey-5;
+    }
+  }
+
+  &__shot {
+    aspect-ratio: 16 / 9;
+    background: $color-grey-1;
+    border: 1px solid rgba($color-black, 0.08);
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 18px;
+    object-fit: cover;
+    object-position: top center;
+    transition:
+      box-shadow $transition,
+      transform $transition;
+    width: 100%;
+  }
+
+  &__by {
+    color: $color-red;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  // Scoped through .features__block to override the `.common-content ul`
+  // rule (list-style: disc; padding-left: 25px) the page inherits.
+  .features__block ul.reference-library__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 15px 0 0;
+    padding: 0;
+
+    li {
+      background: rgba($color-black, 0.05);
+      border-radius: 3px;
+      color: $color-grey-5;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      list-style: none;
+      padding: 6px 10px;
+      text-transform: uppercase;
+    }
+  }
+}
