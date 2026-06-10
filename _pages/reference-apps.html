@@ -14,6 +14,11 @@ redirect_from:
           Learn from real,<br />
           open-source Rails apps.
         </h1>
+        <p>
+          A small, hand-picked library of exemplary open-source apps worth
+          reading to see how production-quality Rails is built today. The bar
+          for inclusion is high.
+        </p>
       </div>
     </div>
   </div>
@@ -21,37 +26,42 @@ redirect_from:
 
 <div class="docs cards reference-apps common-padding--bottom-small">
   <div class="container">
-    <p>
-      A small, hand-picked library of exemplary open-source apps worth reading
-      to see how production-quality Rails is built today. The bar for inclusion
-      is high.
-    </p>
-
     <div class="cards__container">
       {% for app in site.data.reference_apps.apps %}
       <div class="card">
         <a href="{{ app.repo }}" title="{{ app.name }} source code">
           <div class="card__body">
-            {% if app.by %}
-            <div class="card__label">
-              <h6>{{ app.by }}</h6>
-            </div>
+            {% if app.screenshot %}
+            <img
+              class="reference-apps__shot"
+              src="{{ app.screenshot }}"
+              alt="Screenshot of {{ app.name }}"
+              loading="lazy"
+            />
             {% endif %}
 
-            <div class="card__headline">
-              <h3>{{ app.name }}</h3>
-            </div>
-
-            <div class="card__content">
-              <p>{{ app.blurb }}</p>
-
-              {% if app.tags %}
-              <ul class="reference-apps__tags">
-                {% for tag in app.tags %}
-                <li>{{ tag }}</li>
-                {% endfor %}
-              </ul>
+            <div class="reference-apps__text">
+              {% if app.by %}
+              <div class="card__label">
+                <h6>{{ app.by }}</h6>
+              </div>
               {% endif %}
+
+              <div class="card__headline">
+                <h3>{{ app.name }}</h3>
+              </div>
+
+              <div class="card__content">
+                <p>{{ app.blurb }}</p>
+
+                {% if app.tags %}
+                <ul class="reference-apps__tags">
+                  {% for tag in app.tags %}
+                  <li>{{ tag }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </div>
             </div>
           </div>
         </a>
