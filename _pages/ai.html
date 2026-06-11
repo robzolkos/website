@@ -21,6 +21,40 @@ redirect_from:
 <div class="ai common-background--grey common-shape--bottom-white-up-left common-shape--top-white-down-right">
   <div class="container">
     <div class="ai__body">
+      <div class="ai__quotes reference-quotes">
+        <ul class="reference-quotes__grid">
+          {% for quote in site.data.ai_quotes.quotes %}
+          <li class="reference-quotes__item">
+            <blockquote>
+              <p>{{ quote.text }}</p>
+            </blockquote>
+            <cite>
+              <a href="{{ quote.url }}">
+                {% if quote.avatar %}
+                <img
+                  class="reference-quotes__avatar"
+                  src="{{ quote.avatar }}"
+                  alt="{{ quote.name }}"
+                  loading="lazy"
+                />
+                {% endif %}
+                <span class="reference-quotes__person">
+                  <span class="reference-quotes__name">{{ quote.name }}</span>
+                  <span class="reference-quotes__meta">
+                    {{ quote.handle }}
+                  </span>
+                </span>
+              </a>
+            </cite>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="ai__section-heading">
+        <h2>Why Rails for AI</h2>
+      </div>
+
       <div class="ai__areas">
         <div class="ai__area">
           <div class="ai__area__number">01</div>
@@ -46,6 +80,279 @@ redirect_from:
           <p><strong>One person can ship more.</strong> Rails provides the full product stack. Add an AI coding agent, and a solo builder can take on broader work without stitching everything together from scratch.</p>
         </div>
       </div>
+
+      <section class="ai__models" aria-labelledby="ai-models-heading">
+        <div class="ai__models__header">
+          <h2 id="ai-models-heading">Which model is best?</h2>
+          <p>Illustrative Rails eval scores by framework component. Click any column heading to sort.</p>
+        </div>
+
+        <div class="ai__models__table-wrap">
+          <table class="ai__models__table" data-sortable-table>
+            <thead>
+              <tr>
+                <th><button type="button" data-sort-key="model" data-sort-type="text">Model</button></th>
+                <th><button type="button" data-sort-key="active-record" data-sort-type="number">Active Record</button></th>
+                <th><button type="button" data-sort-key="action-pack" data-sort-type="number">Action Pack</button></th>
+                <th><button type="button" data-sort-key="action-view" data-sort-type="number">Action View</button></th>
+                <th><button type="button" data-sort-key="active-job" data-sort-type="number">Active Job</button></th>
+                <th><button type="button" data-sort-key="action-cable" data-sort-type="number">Action Cable</button></th>
+                <th><button type="button" data-sort-key="rails-core" data-sort-type="number">Rails Core</button></th>
+                <th aria-sort="descending"><button type="button" data-sort-key="average" data-sort-type="number">Average</button></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-model="Anthropic: Claude Opus 4.8" data-active-record="96" data-action-pack="95" data-action-view="94" data-active-job="93" data-action-cable="91" data-rails-core="96" data-average="94.2">
+                <th scope="row">Anthropic: Claude Opus 4.8</th>
+                <td><span class="ai__score ai__score--high">96</span></td>
+                <td><span class="ai__score ai__score--high">95</span></td>
+                <td><span class="ai__score ai__score--high">94</span></td>
+                <td><span class="ai__score ai__score--high">93</span></td>
+                <td><span class="ai__score ai__score--high">91</span></td>
+                <td><span class="ai__score ai__score--high">96</span></td>
+                <td><span class="ai__score ai__score--high">94.2</span></td>
+              </tr>
+              <tr data-model="OpenAI: GPT Chat Latest" data-active-record="95" data-action-pack="94" data-action-view="92" data-active-job="92" data-action-cable="90" data-rails-core="95" data-average="93.0">
+                <th scope="row">OpenAI: GPT Chat Latest</th>
+                <td><span class="ai__score ai__score--high">95</span></td>
+                <td><span class="ai__score ai__score--high">94</span></td>
+                <td><span class="ai__score ai__score--high">92</span></td>
+                <td><span class="ai__score ai__score--high">92</span></td>
+                <td><span class="ai__score ai__score--high">90</span></td>
+                <td><span class="ai__score ai__score--high">95</span></td>
+                <td><span class="ai__score ai__score--high">93.0</span></td>
+              </tr>
+              <tr data-model="Google: Gemini Pro Latest" data-active-record="94" data-action-pack="92" data-action-view="93" data-active-job="91" data-action-cable="89" data-rails-core="93" data-average="92.0">
+                <th scope="row">Google: Gemini Pro Latest</th>
+                <td><span class="ai__score ai__score--high">94</span></td>
+                <td><span class="ai__score ai__score--high">92</span></td>
+                <td><span class="ai__score ai__score--high">93</span></td>
+                <td><span class="ai__score ai__score--high">91</span></td>
+                <td><span class="ai__score ai__score--mid">89</span></td>
+                <td><span class="ai__score ai__score--high">93</span></td>
+                <td><span class="ai__score ai__score--high">92.0</span></td>
+              </tr>
+              <tr data-model="xAI: Grok 4.3" data-active-record="92" data-action-pack="91" data-action-view="90" data-active-job="89" data-action-cable="88" data-rails-core="91" data-average="90.2">
+                <th scope="row">xAI: Grok 4.3</th>
+                <td><span class="ai__score ai__score--high">92</span></td>
+                <td><span class="ai__score ai__score--high">91</span></td>
+                <td><span class="ai__score ai__score--high">90</span></td>
+                <td><span class="ai__score ai__score--mid">89</span></td>
+                <td><span class="ai__score ai__score--mid">88</span></td>
+                <td><span class="ai__score ai__score--high">91</span></td>
+                <td><span class="ai__score ai__score--high">90.2</span></td>
+              </tr>
+              <tr data-model="Qwen: Qwen3.7 Max" data-active-record="91" data-action-pack="90" data-action-view="88" data-active-job="88" data-action-cable="87" data-rails-core="90" data-average="89.0">
+                <th scope="row">Qwen: Qwen3.7 Max</th>
+                <td><span class="ai__score ai__score--high">91</span></td>
+                <td><span class="ai__score ai__score--high">90</span></td>
+                <td><span class="ai__score ai__score--mid">88</span></td>
+                <td><span class="ai__score ai__score--mid">88</span></td>
+                <td><span class="ai__score ai__score--mid">87</span></td>
+                <td><span class="ai__score ai__score--high">90</span></td>
+                <td><span class="ai__score ai__score--mid">89.0</span></td>
+              </tr>
+              <tr data-model="Mistral: Mistral Medium 3.5" data-active-record="89" data-action-pack="88" data-action-view="87" data-active-job="86" data-action-cable="84" data-rails-core="88" data-average="87.0">
+                <th scope="row">Mistral: Mistral Medium 3.5</th>
+                <td><span class="ai__score ai__score--mid">89</span></td>
+                <td><span class="ai__score ai__score--mid">88</span></td>
+                <td><span class="ai__score ai__score--mid">87</span></td>
+                <td><span class="ai__score ai__score--mid">86</span></td>
+                <td><span class="ai__score ai__score--mid">84</span></td>
+                <td><span class="ai__score ai__score--mid">88</span></td>
+                <td><span class="ai__score ai__score--mid">87.0</span></td>
+              </tr>
+              <tr data-model="DeepSeek: V3.2" data-active-record="88" data-action-pack="87" data-action-view="86" data-active-job="85" data-action-cable="82" data-rails-core="87" data-average="85.8">
+                <th scope="row">DeepSeek: V3.2</th>
+                <td><span class="ai__score ai__score--mid">88</span></td>
+                <td><span class="ai__score ai__score--mid">87</span></td>
+                <td><span class="ai__score ai__score--mid">86</span></td>
+                <td><span class="ai__score ai__score--mid">85</span></td>
+                <td><span class="ai__score ai__score--mid">82</span></td>
+                <td><span class="ai__score ai__score--mid">87</span></td>
+                <td><span class="ai__score ai__score--mid">85.8</span></td>
+              </tr>
+              <tr data-model="Meta: Llama 4.1 Maverick" data-active-record="86" data-action-pack="84" data-action-view="84" data-active-job="83" data-action-cable="80" data-rails-core="85" data-average="83.7">
+                <th scope="row">Meta: Llama 4.1 Maverick</th>
+                <td><span class="ai__score ai__score--mid">86</span></td>
+                <td><span class="ai__score ai__score--mid">84</span></td>
+                <td><span class="ai__score ai__score--mid">84</span></td>
+                <td><span class="ai__score ai__score--mid">83</span></td>
+                <td><span class="ai__score ai__score--mid">80</span></td>
+                <td><span class="ai__score ai__score--mid">85</span></td>
+                <td><span class="ai__score ai__score--mid">83.7</span></td>
+              </tr>
+              <tr data-model="NVIDIA: Nemotron 3 Ultra" data-active-record="84" data-action-pack="83" data-action-view="81" data-active-job="81" data-action-cable="78" data-rails-core="82" data-average="81.5">
+                <th scope="row">NVIDIA: Nemotron 3 Ultra</th>
+                <td><span class="ai__score ai__score--mid">84</span></td>
+                <td><span class="ai__score ai__score--mid">83</span></td>
+                <td><span class="ai__score ai__score--mid">81</span></td>
+                <td><span class="ai__score ai__score--mid">81</span></td>
+                <td><span class="ai__score ai__score--low">78</span></td>
+                <td><span class="ai__score ai__score--mid">82</span></td>
+                <td><span class="ai__score ai__score--mid">81.5</span></td>
+              </tr>
+              <tr data-model="IBM: Granite 4.1 8B" data-active-record="79" data-action-pack="77" data-action-view="76" data-active-job="75" data-action-cable="72" data-rails-core="78" data-average="76.2">
+                <th scope="row">IBM: Granite 4.1 8B</th>
+                <td><span class="ai__score ai__score--low">79</span></td>
+                <td><span class="ai__score ai__score--low">77</span></td>
+                <td><span class="ai__score ai__score--low">76</span></td>
+                <td><span class="ai__score ai__score--low">75</span></td>
+                <td><span class="ai__score ai__score--low">72</span></td>
+                <td><span class="ai__score ai__score--low">78</span></td>
+                <td><span class="ai__score ai__score--low">76.2</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ai__methodology">
+          <h3>Methodology</h3>
+          <p>These demo results are calculated from a curated set of Rails evals covering framework knowledge, idiomatic code generation, debugging, refactoring, test writing, migration safety, and cross-component reasoning. Each model is scored per Rails framework component, then the average is computed across the suite. The numbers here are illustrative placeholders for presentation only.</p>
+        </div>
+      </section>
+
+      <section class="ai__tokens" aria-labelledby="ai-tokens-heading">
+        <div class="ai__models__header">
+          <h2 id="ai-tokens-heading">Token Efficiency</h2>
+          <p>How many tokens does an AI agent need to scaffold the same project in different web frameworks?</p>
+        </div>
+
+        <div class="ai__models__table-wrap">
+          <table class="ai__models__table ai__tokens__table">
+            <thead>
+              <tr>
+                <th>Framework</th>
+                <th>Model</th>
+                <th>Input Tokens</th>
+                <th>Output Tokens</th>
+                <th>Total Tokens</th>
+                <th>Time Taken</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/rails.svg" alt="" />Ruby on Rails</span></th>
+                <td>Anthropic: Claude Opus 4.8</td>
+                <td><span class="ai__metric ai__metric--good">1,450</span></td>
+                <td><span class="ai__metric ai__metric--good">6,200</span></td>
+                <td><span class="ai__metric ai__metric--good">7,650</span></td>
+                <td><span class="ai__metric ai__metric--good">2m 18s</span></td>
+                <td><span class="ai__metric ai__metric--good">$0.162</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/phoenix.svg" alt="" />Phoenix</span></th>
+                <td>OpenAI: GPT Chat Latest</td>
+                <td><span class="ai__metric ai__metric--good">1,750</span></td>
+                <td><span class="ai__metric ai__metric--mid">7,900</span></td>
+                <td><span class="ai__metric ai__metric--mid">9,650</span></td>
+                <td><span class="ai__metric ai__metric--good">2m 54s</span></td>
+                <td><span class="ai__metric ai__metric--mid">$0.246</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/django.svg" alt="" />Django</span></th>
+                <td>Google: Gemini 3.5 Flash</td>
+                <td><span class="ai__metric ai__metric--mid">1,800</span></td>
+                <td><span class="ai__metric ai__metric--mid">8,400</span></td>
+                <td><span class="ai__metric ai__metric--mid">10,200</span></td>
+                <td><span class="ai__metric ai__metric--mid">3m 06s</span></td>
+                <td><span class="ai__metric ai__metric--good">$0.078</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/laravel.svg" alt="" />Laravel</span></th>
+                <td>xAI: Grok 4.3</td>
+                <td><span class="ai__metric ai__metric--mid">1,900</span></td>
+                <td><span class="ai__metric ai__metric--mid">9,000</span></td>
+                <td><span class="ai__metric ai__metric--mid">10,900</span></td>
+                <td><span class="ai__metric ai__metric--mid">3m 21s</span></td>
+                <td><span class="ai__metric ai__metric--good">$0.025</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/nextjs.svg" alt="" />Next.js</span></th>
+                <td>Qwen: Qwen3.7 Max</td>
+                <td><span class="ai__metric ai__metric--mid">2,300</span></td>
+                <td><span class="ai__metric ai__metric--bad">12,000</span></td>
+                <td><span class="ai__metric ai__metric--bad">14,300</span></td>
+                <td><span class="ai__metric ai__metric--bad">4m 12s</span></td>
+                <td><span class="ai__metric ai__metric--good">$0.048</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/express.svg" alt="" />Express</span></th>
+                <td>Mistral: Mistral Medium 3.5</td>
+                <td><span class="ai__metric ai__metric--bad">2,600</span></td>
+                <td><span class="ai__metric ai__metric--bad">13,500</span></td>
+                <td><span class="ai__metric ai__metric--bad">16,100</span></td>
+                <td><span class="ai__metric ai__metric--bad">4m 38s</span></td>
+                <td><span class="ai__metric ai__metric--mid">$0.105</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/aspnet.svg" alt="" />ASP.NET Core</span></th>
+                <td>NVIDIA: Nemotron 3 Ultra</td>
+                <td><span class="ai__metric ai__metric--bad">2,800</span></td>
+                <td><span class="ai__metric ai__metric--bad">14,800</span></td>
+                <td><span class="ai__metric ai__metric--bad">17,600</span></td>
+                <td><span class="ai__metric ai__metric--bad">5m 02s</span></td>
+                <td><span class="ai__metric ai__metric--good">$0.038</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ai__framework"><img src="/assets/images/ai-frameworks/spring.svg" alt="" />Spring Boot</span></th>
+                <td>IBM: Granite 4.1 8B</td>
+                <td><span class="ai__metric ai__metric--bad">3,100</span></td>
+                <td><span class="ai__metric ai__metric--bad">16,200</span></td>
+                <td><span class="ai__metric ai__metric--bad">19,300</span></td>
+                <td><span class="ai__metric ai__metric--bad">5m 41s</span></td>
+                <td><span class="ai__metric ai__metric--good">$0.002</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ai__methodology">
+          <h3>Methodology</h3>
+          <p>The same prompt was run once per framework: <em>“Create a responsive website with blog. Use modern styling for a racing car company. Use the &lt;framework&gt; framework for this project”.</em> Token counts include the initial prompt plus generated project code. Cost is calculated using the input and output token pricing for the model shown in each row.</p>
+        </div>
+      </section>
+
+      <script>
+        document.querySelectorAll('[data-sortable-table]').forEach(function(table) {
+          var tbody = table.querySelector('tbody');
+          var buttons = table.querySelectorAll('thead button');
+          var directions = {};
+
+          buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+              var key = button.dataset.sortKey;
+              var type = button.dataset.sortType;
+              var direction = directions[key] === 'asc' ? 'desc' : 'asc';
+              directions[key] = direction;
+
+              Array.from(table.querySelectorAll('thead th')).forEach(function(th) {
+                th.removeAttribute('aria-sort');
+              });
+              button.closest('th').setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
+
+              Array.from(tbody.querySelectorAll('tr'))
+                .sort(function(a, b) {
+                  var aValue = a.getAttribute('data-' + key);
+                  var bValue = b.getAttribute('data-' + key);
+
+                  if (type === 'number') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                  }
+
+                  if (aValue < bValue) return direction === 'asc' ? -1 : 1;
+                  if (aValue > bValue) return direction === 'asc' ? 1 : -1;
+                  return 0;
+                })
+                .forEach(function(row) {
+                  tbody.appendChild(row);
+                });
+            });
+          });
+        });
+      </script>
     </div>
   </div>
 </div>

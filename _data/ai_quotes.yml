@@ -1,5 +1,5 @@
-# Pull quotes featured above the Reference Apps grid — voices on why Rails is a
-# strong fit for AI/agent-assisted development. Each links to its source tweet.
+# Pull quotes featured on the AI page — voices on why Rails is a strong fit for
+# AI/agent-assisted development. Each links to its source tweet.
 # `title` is optional. Keep quotes punchy; mark any trim with an ellipsis (…).
 quotes:
   - text: "Convention over configuration set the path for 20+ years of great training data for AI to use today. Not only does this mean agents do great with Rails, but also that squishy humans can quickly and confidently review the output without a jungle of distracting boilerplate."
