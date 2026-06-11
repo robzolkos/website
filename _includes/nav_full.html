@@ -1,0 +1,158 @@
+<nav class="nav nav--full">
+  <details class="nav__menu">
+    <summary class="nav__logo" aria-label="Navigation">
+      <span class="nav__label">Navigation</span>
+      <span class="nav__caret" aria-hidden="true"></span>
+    </summary>
+
+    <div class="nav__options">
+      <div>
+        <div class="nav__featured" aria-label="Featured navigation">
+          <a class="nav__tile{% if page.url == '/' %} active{% endif %}" href="/">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M3 11.2 12 4l9 7.2-1.2 1.5L18 11.3V20h-5v-5h-2v5H6v-8.7l-1.8 1.4L3 11.2Z" /></svg>
+            </span>
+            <span>Home</span>
+          </a>
+
+          <a class="nav__tile" href="https://github.com/rails/rails">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M9.4 16.6 4.8 12l4.6-4.6 1.4 1.4L7.6 12l3.2 3.2-1.4 1.4Zm5.2 0-1.4-1.4 3.2-3.2-3.2-3.2 1.4-1.4 4.6 4.6-4.6 4.6Z" /></svg>
+            </span>
+            <span>Code</span>
+          </a>
+
+          {% assign docs_active = false %}
+          {% unless page.url contains '/docs/reference-apps' %}
+            {% if page.url == '/docs' or page.url contains '/docs' %}
+              {% assign docs_active = true %}
+            {% endif %}
+          {% endunless %}
+          <a class="nav__tile{% if docs_active %} active{% endif %}" href="/docs">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h9l3 3v15H6V3Zm8 1.8V7h2.2L14 4.8ZM8 9h8V7.8h-3.2V5H8v4Zm0 3h8v-1.5H8V12Zm0 3h8v-1.5H8V15Zm0 3h6v-1.5H8V18Z" /></svg>
+            </span>
+            <span>Docs</span>
+          </a>
+
+          {% assign news_active = false %}
+          {% if page.url == '/blog' or page.url contains '/blog' or page.url contains '/2' %}
+            {% assign news_active = true %}
+          {% endif %}
+          <a class="nav__tile{% if news_active %} active{% endif %}" href="/blog">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h14v3h2v11H4V5Zm2 2v10h10V7H6Zm12 3v7h1v-7h-1ZM7 9h8v1.5H7V9Zm0 3h8v1.5H7V12Zm0 3h5v1.5H7V15Z" /></svg>
+            </span>
+            <span>News</span>
+          </a>
+
+          <a class="nav__tile{% if page.url == '/ai' %} active{% endif %}" href="/ai">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="m12 2 1.5 5.1L18.6 9l-5.1 1.9L12 16l-1.5-5.1L5.4 9l5.1-1.9L12 2Zm6.5 10 0.8 2.7L22 15.5l-2.7 0.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7ZM5.5 13 6.7 17l3.8 1.5L6.7 20 5.5 24 4.3 20 .5 18.5 4.3 17l1.2-4Z" /></svg>
+            </span>
+            <span>AI</span>
+          </a>
+
+          {% assign apps_active = false %}
+          {% if page.url contains '/docs/reference-apps' %}
+            {% assign apps_active = true %}
+          {% endif %}
+          <a class="nav__tile{% if apps_active %} active{% endif %}" href="/docs/reference-apps">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h7v6H4V5Zm9 0h7v6h-7V5ZM4 13h7v6H4v-6Zm9 0h7v6h-7v-6ZM6 7v2h3V7H6Zm9 0v2h3V7h-3ZM6 15v2h3v-2H6Zm9 0v2h3v-2h-3Z" /></svg>
+            </span>
+            <span>Build</span>
+          </a>
+        </div>
+
+        <form class="nav__search" action="https://duckduckgo.com/" method="get">
+          <input type="hidden" name="sites" value="rubyonrails.org">
+          <label class="nav__label" for="nav__search-input-full">Search Ruby on Rails</label>
+          <input id="nav__search-input-full" name="q" type="search" placeholder="Search Ruby on Rails" autocomplete="off">
+        </form>
+
+        <div class="nav__sections" aria-label="Full navigation">
+          <details class="nav__section" open>
+            <summary>Get started</summary>
+            <ul>
+              <li><a href="https://guides.rubyonrails.org/install_ruby_on_rails.html">Install Rails</a></li>
+              <li><a href="/docs/tutorials">Tutorials</a></li>
+              <li><a href="https://guides.rubyonrails.org/getting_started.html">Create a store</a></li>
+              <li><a href="https://guides.rubyonrails.org/sign_up_and_settings.html">Sign up &amp; settings</a></li>
+              <li><a href="https://guides.rubyonrails.org/wishlists.html">User wishlists</a></li>
+            </ul>
+          </details>
+
+          <details class="nav__section">
+            <summary>Docs &amp; reference</summary>
+            <ul>
+              <li><a href="/docs">Documentation home</a></li>
+              <li><a href="https://guides.rubyonrails.org/">Rails Guides</a></li>
+              <li><a href="https://api.rubyonrails.org/">API documentation</a></li>
+              <li><a href="/docs/reference-apps">Reference apps</a></li>
+              <li><a href="/docs/case-studies/cookpad">Cookpad case study</a></li>
+              <li><a href="/docs/case-studies/doximity">Doximity case study</a></li>
+              <li><a href="https://guides.rubyonrails.org/maintenance_policy.html">Maintenance policy</a></li>
+              <li><a href="/security">Security</a></li>
+            </ul>
+          </details>
+
+          <details class="nav__section">
+            <summary>AI &amp; building</summary>
+            <ul>
+              <li><a href="/ai">Rails and AI</a></li>
+              <li><a href="/docs/reference-apps">Study open-source apps</a></li>
+              <li><a href="https://github.com/rails/rails">Rails source</a></li>
+              <li><a href="https://guides.rubyonrails.org/contributing_to_ruby_on_rails.html">Contribute to Rails</a></li>
+            </ul>
+          </details>
+
+          <details class="nav__section">
+            <summary>Community</summary>
+            <ul>
+              <li><a href="/community">Community home</a></li>
+              <li><a href="https://discuss.rubyonrails.org/">Rails Forum</a></li>
+              <li><a href="https://discord.gg/d8N68BCw49">Rails Discord</a></li>
+              <li><a href="https://contributors.rubyonrails.org">Rails Contributors</a></li>
+              <li><a href="/conduct">Code of Conduct</a></li>
+              <li><a href="https://jobs.rubyonrails.org">Jobs</a></li>
+            </ul>
+          </details>
+
+          <details class="nav__section">
+            <summary>News &amp; events</summary>
+            <ul>
+              <li><a href="/blog">News</a></li>
+              <li><a href="/newsletter">This Week in Rails</a></li>
+              <li><a href="/events">Events</a></li>
+              <li><a href="/world">Rails World</a></li>
+              <li><a href="https://www.rubyevents.org/events">Ruby Events</a></li>
+              <li><a href="/category/foundation">Foundation news</a></li>
+            </ul>
+          </details>
+
+          <details class="nav__section">
+            <summary>Foundation</summary>
+            <ul>
+              <li><a href="/foundation">Rails Foundation</a></li>
+              <li><a href="/trademarks">Trademarks</a></li>
+              <li><a href="https://public.3.basecamp.com/p/7ymKZrwbdPoZhwCzhH2SZkLH">Membership deck</a></li>
+              <li><a href="mailto:foundation@rubyonrails.org">Contact the Foundation</a></li>
+              <li><a href="/foundation/privacy">Foundation Privacy Policy</a></li>
+            </ul>
+          </details>
+
+          <details class="nav__section">
+            <summary>More</summary>
+            <ul>
+              <li><a href="https://merch.rubyonrails.org">Merch</a></li>
+              <li><a href="/maintenance">Maintenance</a></li>
+              <li><a href="/privacy">Privacy</a></li>
+              <li><a href="mailto:info@rubyonrails.org">Contact</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+  </details>
+</nav>

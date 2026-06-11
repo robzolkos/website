@@ -15,45 +15,11 @@ redirect_from:
           open-source Rails apps.
         </h1>
         <p>
-          A small, hand-picked library of exemplary open-source apps worth
-          reading to see how production-quality Rails is built today. The bar
-          for inclusion is high.
+          A curated set of open-source Rails apps worth studying for
+          real-world, production-quality patterns.
         </p>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="reference-quotes common-padding--top-small common-padding--bottom-small">
-  <div class="container">
-    <h2 class="reference-quotes__heading">Built for the age of AI.</h2>
-    <ul class="reference-quotes__grid">
-      {% for quote in site.data.ai_quotes.quotes %}
-      <li class="reference-quotes__item">
-        <blockquote>
-          <p>{{ quote.text }}</p>
-        </blockquote>
-        <cite>
-          <a href="{{ quote.url }}">
-            {% if quote.avatar %}
-            <img
-              class="reference-quotes__avatar"
-              src="{{ quote.avatar }}"
-              alt="{{ quote.name }}"
-              loading="lazy"
-            />
-            {% endif %}
-            <span class="reference-quotes__person">
-              <span class="reference-quotes__name">{{ quote.name }}</span>
-              <span class="reference-quotes__meta">
-                {{ quote.handle }}{% if quote.title %} · {{ quote.title }}{% endif %}
-              </span>
-            </span>
-          </a>
-        </cite>
-      </li>
-      {% endfor %}
-    </ul>
   </div>
 </div>
 

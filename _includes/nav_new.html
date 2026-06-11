@@ -1,0 +1,124 @@
+<nav class="nav nav--new">
+  <details class="nav__menu">
+    <summary class="nav__logo" aria-label="Navigation">
+      <span class="nav__label">Navigation</span>
+      <span class="nav__caret" aria-hidden="true"></span>
+    </summary>
+
+    <div class="nav__options">
+      <div>
+        <div class="nav__featured" aria-label="Featured navigation">
+          <a class="nav__tile{% if page.url == '/' %} active{% endif %}" href="/">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M3 11.2 12 4l9 7.2-1.2 1.5L18 11.3V20h-5v-5h-2v5H6v-8.7l-1.8 1.4L3 11.2Z" />
+              </svg>
+            </span>
+            <span>Home</span>
+          </a>
+
+          <a class="nav__tile" href="https://github.com/rails/rails">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M9.4 16.6 4.8 12l4.6-4.6 1.4 1.4L7.6 12l3.2 3.2-1.4 1.4Zm5.2 0-1.4-1.4 3.2-3.2-3.2-3.2 1.4-1.4 4.6 4.6-4.6 4.6Z" />
+              </svg>
+            </span>
+            <span>Code</span>
+          </a>
+
+          {% assign docs_active = false %}
+          {% unless page.url contains '/docs/reference-apps' %}
+            {% if page.url == '/docs' or page.url contains '/docs' %}
+              {% assign docs_active = true %}
+            {% endif %}
+          {% endunless %}
+          <a class="nav__tile{% if docs_active %} active{% endif %}" href="/docs">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M6 3h9l3 3v15H6V3Zm8 1.8V7h2.2L14 4.8ZM8 9h8V7.8h-3.2V5H8v4Zm0 3h8v-1.5H8V12Zm0 3h8v-1.5H8V15Zm0 3h6v-1.5H8V18Z" />
+              </svg>
+            </span>
+            <span>Docs</span>
+          </a>
+
+          {% assign news_active = false %}
+          {% if page.url == '/blog' or page.url contains '/blog' or page.url contains '/2' %}
+            {% assign news_active = true %}
+          {% endif %}
+          <a class="nav__tile{% if news_active %} active{% endif %}" href="/blog">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 5h14v3h2v11H4V5Zm2 2v10h10V7H6Zm12 3v7h1v-7h-1ZM7 9h8v1.5H7V9Zm0 3h8v1.5H7V12Zm0 3h5v1.5H7V15Z" />
+              </svg>
+            </span>
+            <span>News</span>
+          </a>
+
+          <a class="nav__tile{% if page.url == '/ai' %} active{% endif %}" href="/ai">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="m12 2 1.5 5.1L18.6 9l-5.1 1.9L12 16l-1.5-5.1L5.4 9l5.1-1.9L12 2Zm6.5 10 0.8 2.7L22 15.5l-2.7 0.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7ZM5.5 13 6.7 17l3.8 1.5L6.7 20 5.5 24 4.3 20 .5 18.5 4.3 17l1.2-4Z" />
+              </svg>
+            </span>
+            <span>AI</span>
+          </a>
+
+          {% assign apps_active = false %}
+          {% if page.url contains '/docs/reference-apps' %}
+            {% assign apps_active = true %}
+          {% endif %}
+          <a class="nav__tile{% if apps_active %} active{% endif %}" href="/docs/reference-apps">
+            <span class="nav__tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 5h7v6H4V5Zm9 0h7v6h-7V5ZM4 13h7v6H4v-6Zm9 0h7v6h-7v-6ZM6 7v2h3V7H6Zm9 0v2h3V7h-3ZM6 15v2h3v-2H6Zm9 0v2h3v-2h-3Z" />
+              </svg>
+            </span>
+            <span>Build</span>
+          </a>
+        </div>
+
+        <form class="nav__search" action="https://duckduckgo.com/" method="get">
+          <input type="hidden" name="sites" value="rubyonrails.org">
+          <label class="nav__label" for="nav__search-input-new">Search Ruby on Rails</label>
+          <input id="nav__search-input-new" name="q" type="search" placeholder="Search Ruby on Rails" autocomplete="off">
+        </form>
+
+        <ul class="nav__links">
+          {% for option in site.data.nav.items %}
+            {% unless option.title == 'Source' or option.title == 'Docs' or option.title == 'News' %}
+              {% assign is_active = false %}
+              {% if page.url == option.url %}
+                {% assign is_active = true %}
+              {% elsif option.url contains '/' and page.url contains option.url and option.url != '/' %}
+                {% assign is_active = true %}
+              {% endif %}
+              <li{% if is_active %} class="active"{% endif %}>
+                <a href="{{ option.url }}">
+                  <span class="nav__link-content">
+                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                      {% case option.title %}
+                      {% when 'Community' %}
+                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm8 0a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM3 19v-1.6C3 14.9 5 13 7.5 13h1C11 13 13 14.9 13 17.4V19H3Zm10 0v-1.6c0-1.5-.5-2.9-1.4-4 0-.3 1.7-.4 2.9-.4h1c2.5 0 4.5 1.9 4.5 4.4V19h-7Z" />
+                      {% when 'Events' %}
+                        <path d="M6 3h2v2h8V3h2v2h2v16H4V5h2V3Zm12 8H6v8h12v-8ZM6 9h12V7H6v2Z" />
+                      {% when 'Jobs' %}
+                        <path d="M9 5h6v2h5v12H4V7h5V5Zm4 2V6h-2v1h2Zm5 4H6v6h12v-6Zm0-2H6v1h12V9Z" />
+                      {% when 'Merch' %}
+                        <path d="M7 4h10l4 5-3 3-2-1.5V20H8v-9.5L6 12 3 9l4-5Zm1 2L5.8 8.7l.4.4L10 6h4l3.8 3.1.4-.4L16 6h-2c-.4 1.2-1.1 2-2 2s-1.6-.8-2-2H8Z" />
+                      {% when 'Foundation' %}
+                        <path d="M12 3 4 7v2h16V7l-8-4ZM6 11v6H4v2h16v-2h-2v-6h-2v6h-3v-6h-2v6H8v-6H6Z" />
+                      {% else %}
+                        <path d="M5 5h14v14H5V5Zm2 2v10h10V7H7Z" />
+                      {% endcase %}
+                    </svg>
+                    <span>{{ option.title }}</span>
+                  </span>
+                </a>
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </details>
+</nav>

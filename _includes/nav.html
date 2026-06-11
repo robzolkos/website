@@ -1,49 +1,55 @@
-<nav class="nav">
-  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+<script>
+  (() => {
+    const params = new URLSearchParams(window.location.search)
+    const requestedNav = params.get('nav')
+    const storedNav = localStorage.getItem('nav')
+    const variants = ['new', 'old', 'full']
+    const nav = variants.includes(requestedNav) ? requestedNav : variants.includes(storedNav) ? storedNav : 'new'
 
-  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+    localStorage.setItem('nav', nav)
+    document.documentElement.dataset.nav = nav
+  })()
+</script>
 
-  <label class="nav__toggle" for="nav__checkbox">
-    <span></span>
-  </label>
+<div data-nav-variant="new">
+  {% include nav_new.html %}
+</div>
 
-  <div class="nav__options">
-    <div>
-      <ul>
-        {% for option in site.data.nav.items limit:4 %}
-          {% assign is_active = false %}
-          {% if page.url == option.url %}
-            {% assign is_active = true %}
-          {% elsif option.url contains '/' and page.url contains option.url and option.url != '/' %}
-            {% assign is_active = true %}
-          {% elsif option.url == '/blog' and page.url contains '/2' %}
-            {% assign is_active = true %}
-          {% endif %}
-          {% if is_active %}
-            <li class="active"><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
-          {% else %}
-            <li><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+<div data-nav-variant="full">
+  {% include nav_full.html %}
+</div>
 
-      <ul>
-        {% for option in site.data.nav.items limit:4 offset:4 %}
-          {% assign is_active = false %}
-          {% if page.url == option.url %}
-            {% assign is_active = true %}
-          {% elsif option.url contains '/' and page.url contains option.url and option.url != '/' %}
-            {% assign is_active = true %}
-          {% elsif option.url == '/blog' and page.url contains '/2' %}
-            {% assign is_active = true %}
-          {% endif %}
-          {% if is_active %}
-            <li class="active"><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
-          {% else %}
-            <li><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-</nav>
+<div data-nav-variant="old">
+  {% include nav_old.html %}
+</div>
+
+<script>
+  (() => {
+    const menus = document.querySelectorAll('[data-nav-variant="new"] .nav__menu, [data-nav-variant="full"] .nav__menu')
+
+    menus.forEach((menu) => {
+      const searchInput = menu.querySelector('input[type="search"]')
+
+      menu.addEventListener('toggle', () => {
+        if (menu.open && searchInput) requestAnimationFrame(() => searchInput.focus({ preventScroll: true }))
+      })
+    })
+
+    document.addEventListener('click', (event) => {
+      menus.forEach((menu) => {
+        if (menu.open && !menu.contains(event.target)) menu.open = false
+      })
+    })
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        menus.forEach((menu) => {
+          if (menu.open) {
+            menu.open = false
+            menu.querySelector('summary').focus()
+          }
+        })
+      }
+    })
+  })()
+</script>

@@ -1,0 +1,52 @@
+<nav class="nav nav--old">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox_old" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox_old">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        {% for option in site.data.nav.items limit:4 %}
+          {% assign is_active = false %}
+          {% if page.url == option.url %}
+            {% assign is_active = true %}
+          {% elsif option.url contains '/' and page.url contains option.url and option.url != '/' %}
+            {% assign is_active = true %}
+          {% elsif option.url == '/blog' and page.url contains '/2' %}
+            {% assign is_active = true %}
+          {% endif %}
+          {% if is_active %}
+            <li class="active"><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
+          {% else %}
+            <li><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
+          {% endif %}
+          {% if option.title == 'Docs' %}
+            <li{% if page.url == '/ai' %} class="active"{% endif %}><a href="/ai"><span>AI</span></a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      <ul>
+        {% for option in site.data.nav.items limit:4 offset:4 %}
+          {% assign is_active = false %}
+          {% if page.url == option.url %}
+            {% assign is_active = true %}
+          {% elsif option.url contains '/' and page.url contains option.url and option.url != '/' %}
+            {% assign is_active = true %}
+          {% elsif option.url == '/blog' and page.url contains '/2' %}
+            {% assign is_active = true %}
+          {% endif %}
+          {% if is_active %}
+            <li class="active"><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
+          {% else %}
+            <li><a href="{{ option.url }}"><span>{{ option.title }}</span></a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,110 @@
+.ai {
+
+  position: relative;
+
+  &__body {
+    padding: 70px 0 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__headline {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  &__content {
+    margin: 0 auto 40px;
+    max-width: 760px;
+    text-align: center;
+  }
+
+  &__areas {
+    display: grid;
+    gap: 18px;
+    margin: 0 auto;
+    max-width: 1040px;
+  }
+
+  &__area {
+    background: $color-white;
+    border: 1px solid rgba($color-black, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 15px 70px 5px rgba($color-black, 0.05), 0 1px 1px rgba($color-black, 0.02);
+    padding: 26px;
+
+    h3 {
+      color: $color-black;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 30px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: $color-grey-5;
+      font-size: 18px;
+      line-height: 27px;
+
+      strong {
+        color: $color-black;
+        font-weight: 700;
+      }
+    }
+
+  }
+
+  &__area__number {
+    color: $color-red;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  @media(min-width: 768px) {
+
+    &__areas {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__area {
+      padding: 32px;
+      width: calc(50% - 18px);
+
+      &:nth-child(odd) {
+        align-self: flex-start;
+        transform: rotate(-0.6deg);
+      }
+
+      &:nth-child(even) {
+        align-self: flex-end;
+        transform: rotate(0.6deg);
+      }
+
+    }
+
+  }
+
+  @media(min-width: 1024px) {
+
+    &__body {
+      padding: 90px 0 100px;
+    }
+
+    &__areas {
+      gap: 28px;
+    }
+
+    &__area {
+      padding: 38px;
+      width: calc(50% - 24px);
+    }
+
+  }
+
+}
